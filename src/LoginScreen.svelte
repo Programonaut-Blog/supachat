@@ -1,5 +1,7 @@
 <script lang="ts">
-  import { supabase } from "./lib/supabase";
+  import { onMount } from "svelte";
+  import { currentUser, supabase } from "./lib/supabase";
+  import {push} from 'svelte-spa-router'
 
   let email: string;
   let password: string;
@@ -32,6 +34,7 @@
         message = "Invalid password";
       } else {
         message = "Logged in";
+        push('#/user')
       }
     }
     loading = false;

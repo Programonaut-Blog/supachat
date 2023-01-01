@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { push } from "svelte-spa-router";
   import { currentUser, supabase } from "./lib/supabase";
 
   async function handleSignOut() {
@@ -7,11 +8,14 @@
     if (error) {
       console.log("error", error);
     }
+    else {
+      push("#/");
+    }
   }
 </script>
 
 <div class="flex flex-col items-center justify-center w-full py-20">
-  <p>{$currentUser.email}</p>
+  <p>{$currentUser?.email || ""}</p>
   <button
     class="group relative flex w-1/2 justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 mt-2"
     on:click={handleSignOut}
