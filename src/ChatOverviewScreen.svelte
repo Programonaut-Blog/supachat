@@ -73,7 +73,9 @@
 
 <div class="p-8 space-y-2">
     {#each allChats as chat}
-        <ChatCard {chat} />
+        <a href="#/chats/{chat.id}">
+            <ChatCard {chat} />
+        </a>
     {/each}
     <div class="p-4 bg-gray-100 shadow rounded">
         <input type="email" bind:value={newUserEmail}/>

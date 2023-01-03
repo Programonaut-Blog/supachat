@@ -13,3 +13,5 @@ export type chat_with_users_email = (chats &
         user: { email: string }[] | { email: string } 
     }
 })
+
+export type message = Database['public']['Tables']['messages']['Row'];
